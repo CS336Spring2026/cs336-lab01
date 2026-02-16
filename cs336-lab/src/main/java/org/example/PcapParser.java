@@ -41,7 +41,7 @@ public class PcapParser {
      *
      * We'll be listening on "Adapter for loopback traffic", if this returns a wrong interface
      * then run the helper method provided below and change the index to the one that says
-     * "NPF_loopback" on windows | will double check on mac and wsl later
+     * "NPF_loopback" on Windows | "lo0" on Mac
      * and IP addresses of
      * "/0:0:0:0:0:0:0:1"
      * "/127.0.0.1"
@@ -76,7 +76,7 @@ public class PcapParser {
      */
     public static void listen(PcapNetworkInterface device) throws NotOpenException, PcapNativeException {
         // let's confirm we're listening to the correct device
-        // It should say "NPF_Loopback" | will double-check for wsl and mac later
+        // It should say "NPF_Loopback" on Windows | "lo0" on Mac
         System.out.println("Listening on device: " + device.getName());
 
         PcapNetworkInterface.PromiscuousMode mode = PcapNetworkInterface.PromiscuousMode.PROMISCUOUS;
